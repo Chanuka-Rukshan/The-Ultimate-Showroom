@@ -1,0 +1,202 @@
+[
+    {
+        "id": 1,
+        "category": "Supercar",
+        "brand": "Ferrari",
+        "model": "296 GTB",
+        "description": "A new chapter for the Prancing Horse — a 663 kW hybrid architecture wrapped in extreme aero efficiency.",
+        "acceleration": "2.9s",
+        "topSpeed": "330 km/h",
+        "power": "819 HP",
+        "engine": "3.0L V6 Twin-Turbo Hybrid",
+        "year": "2024",
+        "mileage": "1,200 km",
+        "fuel": "Hybrid",
+        "color": "Rosso Corsa",
+        "mainImage": "./src/images/ferrari-main.jpg",
+        "thumbnails": [
+            "./src/images/ferrari-1.jpg",
+            "./src/images/ferrari-2.jpg"
+        ]
+    },
+    {
+        "id": 2,
+        "category": "Van",
+        "brand": "Toyota",
+        "model": "Hiace GL Grandia",
+        "description": "The ultimate passenger van offering premium comfort, immense space, and reliable performance for every journey.",
+        "acceleration": "12.5s",
+        "topSpeed": "160 km/h",
+        "power": "176 HP",
+        "engine": "2.8L 1GD-FTV Turbo Diesel",
+        "year": "2023",
+        "mileage": "15,000 km",
+        "fuel": "Diesel",
+        "color": "White Pearl",
+        "mainImage": "./src/images/hiace-main.jpg",
+        "thumbnails": [
+            "./src/images/hiace-1.jpg",
+            "./src/images/hiace-2.jpg"
+        ]
+    },
+    {
+        "id": 3,
+        "category": "Lorry",
+        "brand": "Isuzu",
+        "model": "Elf NHR",
+        "description": "A highly durable light-duty truck designed for maximum load capacity and fuel efficiency in urban environments.",
+        "acceleration": "N/A",
+        "topSpeed": "120 km/h",
+        "power": "130 HP",
+        "engine": "4.0L Diesel Engine",
+        "year": "2019",
+        "mileage": "45,000 km",
+        "fuel": "Diesel",
+        "color": "White",
+        "mainImage": "./src/images/isuzu-main.jpg",
+        "thumbnails": [
+            "./src/images/isuzu-1.jpg",
+            "./src/images/isuzu-2.jpg"
+        ]
+    },
+    {
+        "id": 4,
+        "category": "Bike",
+        "brand": "Yamaha",
+        "model": "YZF-R1",
+        "description": "A legendary superbike featuring MotoGP-derived crossplane technology and advanced aerodynamics.",
+        "acceleration": "2.6s",
+        "topSpeed": "299 km/h",
+        "power": "200 HP",
+        "engine": "998cc Inline-Four",
+        "year": "2024",
+        "mileage": "0 km",
+        "fuel": "Petrol",
+        "color": "Yamaha Blue",
+        "mainImage": "./src/images/r1-main.jpg",
+        "thumbnails": [
+            "./src/images/r1-1.jpg",
+            "./src/images/r1-2.jpg"
+        ]
+    },
+    {
+        "id": 5,
+        "category": "Bus",
+        "brand": "Mitsubishi",
+        "model": "Rosa",
+        "description": "A versatile and reliable minibus offering exceptional comfort for group travel and tourism.",
+        "acceleration": "N/A",
+        "topSpeed": "140 km/h",
+        "power": "147 HP",
+        "engine": "4.9L Turbo Diesel",
+        "year": "2018",
+        "mileage": "60,000 km",
+        "fuel": "Diesel",
+        "color": "Two-Tone (White/Champagne)",
+        "mainImage": "./src/images/rosa-main.jpg",
+        "thumbnails": [
+            "./src/images/rosa-1.jpg",
+            "./src/images/rosa-2.jpg"
+        ]
+    },
+    {
+        "id": 6,
+        "category": "Car",
+        "brand": "Toyota",
+        "model": "Premio G Superior",
+        "description": "An elegant and luxurious sedan that perfectly balances executive comfort with legendary reliability.",
+        "acceleration": "10.5s",
+        "topSpeed": "180 km/h",
+        "power": "109 HP",
+        "engine": "1.5L 1NZ-FE",
+        "year": "2019",
+        "mileage": "32,000 km",
+        "fuel": "Petrol",
+        "color": "Pearl White",
+        "mainImage": "./src/images/premio-main.jpg",
+        "thumbnails": [
+            "./src/images/premio-1.jpg",
+            "./src/images/premio-2.jpg"
+        ]
+    },
+    {
+        "id": 7,
+        "category": "SUV",
+        "brand": "Land Rover",
+        "model": "Range Rover Autobiography",
+        "description": "The pinnacle of refined capability, offering an unmatched blend of luxury and all-terrain performance.",
+        "acceleration": "5.4s",
+        "topSpeed": "225 km/h",
+        "power": "395 HP",
+        "engine": "3.0L Inline-6 Mild Hybrid",
+        "year": "2023",
+        "mileage": "5,000 km",
+        "fuel": "Hybrid",
+        "color": "Santorini Black",
+        "mainImage": "./src/images/rangerover-main.jpg",
+        "thumbnails": [
+            "./src/images/rangerover-1.jpg",
+            "./src/images/rangerover-2.jpg"
+        ]
+    },
+    {
+        "id": 8,
+        "category": "Car",
+        "brand": "Tesla",
+        "model": "Model 3 Long Range",
+        "description": "A fully electric sedan with futuristic minimalism, blistering acceleration, and zero emissions.",
+        "acceleration": "4.2s",
+        "topSpeed": "233 km/h",
+        "power": "346 HP",
+        "engine": "Dual Motor All-Wheel Drive",
+        "year": "2024",
+        "mileage": "100 km",
+        "fuel": "Electric",
+        "color": "Midnight Silver Metallic",
+        "mainImage": "./src/images/tesla-main.jpg",
+        "thumbnails": [
+            "./src/images/tesla-1.jpg",
+            "./src/images/tesla-2.jpg"
+        ]
+    },
+    {
+        "id": 9,
+        "category": "Bike",
+        "brand": "Honda",
+        "model": "CBR1000RR-R Fireblade",
+        "description": "Born from the racetrack, this superbike delivers relentless power and razor-sharp handling.",
+        "acceleration": "2.9s",
+        "topSpeed": "299 km/h",
+        "power": "214 HP",
+        "engine": "999cc Inline-Four",
+        "year": "2022",
+        "mileage": "3,500 km",
+        "fuel": "Petrol",
+        "color": "Grand Prix Red",
+        "mainImage": "./src/images/fireblade-main.jpg",
+        "thumbnails": [
+            "./src/images/fireblade-1.jpg",
+            "./src/images/fireblade-2.jpg"
+        ]
+    },
+    {
+        "id": 10,
+        "category": "Van",
+        "brand": "Mercedes-Benz",
+        "model": "V-Class V300d",
+        "description": "First-class travel on the road with spacious luxury seating, ambient lighting, and premium finishes.",
+        "acceleration": "7.8s",
+        "topSpeed": "220 km/h",
+        "power": "237 HP",
+        "engine": "2.0L Turbo Diesel",
+        "year": "2024",
+        "mileage": "800 km",
+        "fuel": "Diesel",
+        "color": "Obsidian Black",
+        "mainImage": "./src/images/vclass-main.jpg",
+        "thumbnails": [
+            "./src/images/vclass-1.jpg",
+            "./src/images/vclass-2.jpg"
+        ]
+    }
+]
