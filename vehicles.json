@@ -13,17 +13,18 @@
         "mileage": "1,200 km",
         "fuel": "Hybrid",
         "color": "Rosso Corsa",
-        "mainImage": "./src/images/ferrari-main.jpg",
+        "mainImage": "./src/images/Products/Supercar/01/main.jpg",
         "thumbnails": [
-            "./src/images/ferrari-1.jpg",
-            "./src/images/ferrari-2.jpg"
+            "./src/images/Products/Supercar/01/sub-1.jpg",
+            "./src/images/Products/Supercar/01/sub-2.jpg",
+            "./src/images/Products/Supercar/01/sub-3.jpg"
         ]
     },
     {
         "id": 2,
         "category": "Van",
         "brand": "Toyota",
-        "model": "Hiace GL Grandia",
+        "model": "Toyota HiAce van",
         "description": "The ultimate passenger van offering premium comfort, immense space, and reliable performance for every journey.",
         "acceleration": "12.5s",
         "topSpeed": "160 km/h",
@@ -33,10 +34,11 @@
         "mileage": "15,000 km",
         "fuel": "Diesel",
         "color": "White Pearl",
-        "mainImage": "./src/images/hiace-main.jpg",
+        "mainImage": "./src/images/Products/Van/01/main.jpg",
         "thumbnails": [
-            "./src/images/hiace-1.jpg",
-            "./src/images/hiace-2.jpg"
+            "./src/images/Products/Van/01/sub-1.jpg",
+            "./src/images/Products/Van/01/sub-2.jpg",
+            "./src/images/Products/Van/01/sub-3.jpg"
         ]
     },
     {
@@ -53,10 +55,11 @@
         "mileage": "45,000 km",
         "fuel": "Diesel",
         "color": "White",
-        "mainImage": "./src/images/isuzu-main.jpg",
+       "mainImage": "./src/images/Products/Lorry/01/main.jpg",
         "thumbnails": [
-            "./src/images/isuzu-1.jpg",
-            "./src/images/isuzu-2.jpg"
+            "./src/images/Products/Lorry/01/sub-1.jpg",
+            "./src/images/Products/Lorry/01/sub-2.jpg",
+            "./src/images/Products/Lorry/01/sub-3.jpg"
         ]
     },
     {
@@ -73,10 +76,10 @@
         "mileage": "0 km",
         "fuel": "Petrol",
         "color": "Yamaha Blue",
-        "mainImage": "./src/images/r1-main.jpg",
+        "mainImage": "./src/images/Products/Bike/01/main.jpg",
         "thumbnails": [
-            "./src/images/r1-1.jpg",
-            "./src/images/r1-2.jpg"
+         "./src/images/Products/Bike/01/sub-1.jpg",
+         "./src/images/Products/Bike/01/sub-2.jpg"
         ]
     },
     {
@@ -93,10 +96,11 @@
         "mileage": "60,000 km",
         "fuel": "Diesel",
         "color": "Two-Tone (White/Champagne)",
-        "mainImage": "./src/images/rosa-main.jpg",
+        "mainImage": "./src/images/Products/Bus/01/main.jpg",
         "thumbnails": [
-            "./src/images/rosa-1.jpg",
-            "./src/images/rosa-2.jpg"
+         "./src/images/Products/Bus/01/sub-1.jpg",
+         "./src/images/Products/Bus/01/sub-2.jpg",
+         "./src/images/Products/Bus/01/sub-3.jpg"
         ]
     },
     {
@@ -121,7 +125,7 @@
     },
     {
         "id": 7,
-        "category": "SUV",
+        "category": "Car",
         "brand": "Land Rover",
         "model": "Range Rover Autobiography",
         "description": "The pinnacle of refined capability, offering an unmatched blend of luxury and all-terrain performance.",

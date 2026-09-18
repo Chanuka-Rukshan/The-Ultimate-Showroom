@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Showroom | Vehicles</title>
+    <link rel="shortcut icon" href="./src/images/logo.png" type="image/x-icon">
+    <!-- Tailwind Output CSS -->
+    <link rel="stylesheet" href="./src/output.css">
+</head>
+<body class="bg-obsidian text-silver min-h-screen flex flex-col font-sans">
+
+    <!-- Header Navigation -->
+    <nav class="fixed w-full border-b border-carbon top-0 z-50 bg-obsidian/70 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="shrink-0 flex items-center">
+                    <a href="index.html">
+                        <img src="./src/images/logo.png" alt="Logo" class="w-12 h-12">
+                    </a>
+                </div>
+                <!-- Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-silver hover:text-infrared text-sm font-semibold tracking-wide transition duration-300">HOME</a>
+                    <a href="vehicles.html" class="text-infrared text-sm font-semibold tracking-wide transition duration-300">VEHICLES</a>
+                    <a href="index.html#about" class="text-silver hover:text-infrared text-sm font-semibold tracking-wide transition duration-300">ABOUT US</a>
+                </div>
+                <!-- Contact Button -->
+                <div class="flex items-center space-x-4">
+                    <a href="index.html#contact" class="hidden md:block bg-infrared text-white px-6 py-2 rounded-md font-bold hover:bg-red-700 transition duration-300 shadow-lg shadow-infrared/20">
+                        CONTACT US
+                    </a>
+                    <button class="md:hidden text-silver hover:text-white focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        
+        <!-- Page Title & Counter -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between pb-4 border-b border-carbon relative gap-4 mb-8">
+            <div>
+                <p class="text-xs font-semibold tracking-[0.25em] text-slate uppercase mb-1">The Inventory</p>
+                <h1 class="text-4xl font-bold text-white tracking-wide">All Vehicles</h1>
+            </div>
+            <span id="vehicle-count" class="text-xs text-slate tracking-widest font-mono">Loading units...</span>
+            <!-- Red Accent Line -->
+            <div class="absolute bottom-0 left-0 w-28 h-[2px] bg-infrared"></div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="bg-carbon/40 p-6 rounded-2xl border border-carbon flex flex-wrap gap-4 items-end mb-12 shadow-inner">
+            
+            <!-- Search -->
+            <div class="flex-1 min-w-[250px]">
+                <label class="text-[10px] font-bold text-slate uppercase tracking-wider block mb-1.5">Search</label>
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Model or make" 
+                           class="w-full bg-obsidian border border-carbon text-white text-sm rounded-lg px-4 py-3 pl-11 focus:border-infrared focus:outline-none focus:ring-1 focus:ring-infrared transition">
+                    <svg class="w-5 h-5 text-slate absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Make Dropdown -->
+            <div class="w-full md:w-auto md:min-w-[200px]">
+                <label class="text-[10px] font-bold text-slate uppercase tracking-wider block mb-1.5">Make</label>
+                <div class="relative">
+                    <select id="make-select" class="w-full bg-obsidian border border-carbon text-white text-sm rounded-lg px-4 py-3 pr-10 appearance-none focus:border-infrared focus:outline-none focus:ring-1 focus:ring-infrared transition cursor-pointer">
+                        <option value="All Brands">All Brands</option>
+                        <!-- JavaScript will fill this -->
+                    </select>
+                    <svg class="w-5 h-5 text-slate absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Body Type Dropdown -->
+            <div class="w-full md:w-auto md:min-w-[200px]">
+                <label class="text-[10px] font-bold text-slate uppercase tracking-wider block mb-1.5">Body Type</label>
+                <div class="relative">
+                    <select id="body-select" class="w-full bg-obsidian border border-carbon text-white text-sm rounded-lg px-4 py-3 pr-10 appearance-none focus:border-infrared focus:outline-none focus:ring-1 focus:ring-infrared transition cursor-pointer">
+                        <option value="All Types">All Types</option>
+                        <!-- JavaScript will fill this -->
+                    </select>
+                    <svg class="w-5 h-5 text-slate absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Reset Button -->
+            <button id="reset-filters" class="w-full md:w-auto bg-carbon hover:bg-obsidian border border-carbon hover:border-slate text-silver hover:text-white font-bold px-8 py-3 rounded-lg transition text-xs tracking-wider uppercase md:h-[46px]">
+                Reset
+            </button>
+        </div>
+
+        <!-- Vehicles Grid (Max 9 per page) -->
+        <div id="all-vehicles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <!-- JavaScript will render cards here -->
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="flex justify-center items-center gap-2 pt-8 border-t border-carbon" id="pagination-container">
+            <!-- JavaScript will render pagination buttons here -->
+        </div>
+
+    </main>
+
+    <!-- Vehicle Details Modal Popup -->
+    <div id="vehicle-modal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6">
+        <div class="relative bg-obsidian border border-carbon w-full max-w-5xl rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh] md:max-h-[80vh] overflow-y-auto md:overflow-y-visible">
+            
+            <!-- Close Button -->
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-slate hover:text-infrared z-30 transition bg-black/50 p-2 rounded-full">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+
+            <!-- Left Side: Images -->
+            <div class="w-full md:w-3/5 p-6 flex flex-col">
+                <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-carbon bg-carbon">
+                    <img id="modal-main-img" src="" alt="Vehicle" class="w-full h-full object-cover"/>
+                </div>
+                <!-- Thumbnails -->
+                <div id="modal-thumbnails" class="flex gap-3 mt-4 overflow-x-auto pb-2">
+                    <!-- JS fills this -->
+                </div>
+            </div>
+
+            <!-- Right Side: Details -->
+            <div class="w-full md:w-2/5 p-6 border-t md:border-t-0 md:border-l border-carbon flex flex-col justify-between bg-obsidian">
+                <div>
+                    <span id="modal-brand" class="text-xs font-bold text-infrared tracking-widest uppercase"></span>
+                    <h3 id="modal-model" class="text-3xl font-bold text-white mb-3"></h3>
+                    <p id="modal-desc" class="text-sm text-slate mb-6 leading-relaxed"></p>
+
+                    <div class="h-[1px] bg-carbon w-full mb-6"></div>
+
+                    <!-- Specs Grid -->
+                    <div class="grid grid-cols-2 gap-y-5 gap-x-4 text-sm">
+                        <div>
+                            <p class="text-slate uppercase tracking-wider text-[10px] flex items-center gap-1.5"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> 0-100 km/h</p>
+                            <p id="modal-accel" class="text-white font-semibold mt-1"></p>
+                        </div>
+                        <div>
+                            <p class="text-slate uppercase tracking-wider text-[10px] flex items-center gap-1.5"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Top Speed</p>
+                            <p id="modal-top-speed" class="text-white font-semibold mt-1"></p>
+                        </div>
+                        <div>
+                            <p class="text-slate uppercase tracking-wider text-[10px] flex items-center gap-1.5"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> Power</p>
+                            <p id="modal-power" class="text-white font-semibold mt-1"></p>
+                        </div>
+                        <div>
+                            <p class="text-slate uppercase tracking-wider text-[10px] flex items-center gap-1.5"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Engine</p>
+                            <p id="modal-engine" class="text-white font-semibold mt-1"></p>
+                        </div>
+                        <div>
+                            <p class="text-slate uppercase tracking-wider text-[10px] flex items-center gap-1.5"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg> Year</p>
+                            <p id="modal-year" class="text-white font-semibold mt-1"></p>
+                        </div>
+                        <div>
+                            <p class="text-slate uppercase tracking-wider text-[10px] flex items-center gap-1.5"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg> Mileage</p>
+                            <p id="modal-mileage" class="text-white font-semibold mt-1"></p>
+                        </div>
+                        <div>
+                            <p class="text-slate uppercase tracking-wider text-[10px] flex items-center gap-1.5"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 22h12M4 9h10M4 5h10a2 2 0 012 2v15H2V7a2 2 0 012-2z"/></svg> Fuel</p>
+                            <p id="modal-fuel" class="text-white font-semibold mt-1"></p>
+                        </div>
+                        <div>
+                            <p class="text-slate uppercase tracking-wider text-[10px] flex items-center gap-1.5"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg> Color</p>
+                            <p id="modal-color" class="text-white font-semibold mt-1"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="mt-8 flex flex-col gap-3">
+                    <button class="w-full bg-infrared hover:bg-red-700 text-white font-bold py-3.5 rounded-lg transition text-xs tracking-wider uppercase shadow-lg shadow-infrared/20">
+                        Inquire Now
+                    </button>
+                    <button class="w-full bg-transparent border border-carbon hover:border-slate text-silver hover:text-white font-bold py-3.5 rounded-lg transition text-xs tracking-wider uppercase">
+                        Book Test Drive
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="bg-carbon/20 border-t border-carbon pt-16 pb-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="./src/images/logo.png" alt="Logo" class="w-8 h-8">
+                        <span class="text-xl font-bold text-white tracking-widest">SHOWROOM</span>
+                    </div>
+                    <p class="text-sm text-slate leading-relaxed">
+                        The ultimate destination for luxury, performance, and prestige motorcars. Curated for the elite.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold tracking-wider mb-5 uppercase text-sm">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-slate">
+                        <li><a href="#" class="hover:text-infrared transition">Home</a></li>
+                        <li><a href="vehicles.html" class="hover:text-infrared transition">Inventory</a></li>
+                        <li><a href="#about" class="hover:text-infrared transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-infrared transition">Testimonials</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-bold tracking-wider mb-5 uppercase text-sm">Contact Us</h4>
+                    <ul class="space-y-3 text-sm text-slate">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-infrared" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            +94 77 123 4567
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-infrared" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            sales@ultimateshowroom.com
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-infrared mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span>Luxury Avenue,<br>Colombo, Sri Lanka</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-white font-bold tracking-wider mb-5 uppercase text-sm">Newsletter</h4>
+                    <p class="text-xs text-slate mb-4">Subscribe to receive the latest updates on new arrivals.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Email address" class="bg-obsidian border border-carbon text-white text-sm rounded-l-lg px-4 py-2 w-full focus:outline-none focus:border-infrared transition">
+                        <button class="bg-infrared text-white px-4 py-2 rounded-r-lg hover:bg-red-700 transition">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright & Socials -->
+            <div class="border-t border-carbon pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-slate tracking-wider">&copy; 2026 The Ultimate Showroom. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate hover:text-white transition uppercase text-xs font-bold tracking-widest">FB</a>
+                    <a href="#" class="text-slate hover:text-white transition uppercase text-xs font-bold tracking-widest">IG</a>
+                    <a href="#" class="text-slate hover:text-white transition uppercase text-xs font-bold tracking-widest">X</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        let allVehicles = [];
+        let filteredVehicles = [];
+        const cardsPerPage = 9;
+        let currentPage = 1;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            loadVehicleData();
+            setupFilterListeners();
+            setupModalListeners();
+        });
+
+        // 1. Fetch JSON Data
+        async function loadVehicleData() {
+            try {
+                const response = await fetch('./vehicles.json');
+                allVehicles = await response.json();
+                
+                populateDropdowns();
+                filteredVehicles = allVehicles;
+                applyFilters(); // Start by showing page 1
+                
+            } catch (error) {
+                console.error("Error loading vehicles JSON:", error);
+            }
+        }
+
+        // 2. Populate Dropdowns (Make & Body Type) dynamically from JSON
+        function populateDropdowns() {
+            const makeSelect = document.getElementById('make-select');
+            const bodySelect = document.getElementById('body-select');
+            
+            const makes = [...new Set(allVehicles.map(v => v.brand))].sort();
+            const categories = [...new Set(allVehicles.map(v => v.category))].sort();
+            
+            makes.forEach(make => {
+                const option = document.createElement('option');
+                option.value = make;
+                option.textContent = make;
+                makeSelect.appendChild(option);
+            });
+            
+            categories.forEach(cat => {
+                const option = document.createElement('option');
+                option.value = cat;
+                option.textContent = cat;
+                bodySelect.appendChild(option);
+            });
+        }
+
+        // 3. Render Grid with Pagination Slice
+        function renderCards(page = 1) {
+            const grid = document.getElementById('all-vehicles-grid');
+            grid.innerHTML = '';
+            currentPage = page;
+
+            // Update Counter
+            document.getElementById('vehicle-count').textContent = `${filteredVehicles.length} units available`;
+
+            // No Results Check
+            if (filteredVehicles.length === 0) {
+                grid.innerHTML = `<div class="col-span-full flex flex-col items-center justify-center py-16 border border-carbon rounded-2xl bg-carbon/20">
+                    <svg class="w-12 h-12 text-slate mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <p class="text-lg text-slate">No vehicles match your criteria.</p>
+                </div>`;
+                document.getElementById('pagination-container').innerHTML = ''; 
+                return;
+            }
+
+            // Slice data for pagination
+            const start = (page - 1) * cardsPerPage;
+            const end = start + cardsPerPage;
+            const vehiclesToShow = filteredVehicles.slice(start, end);
+
+            // Render Each Card
+            vehiclesToShow.forEach(car => {
+                const card = document.createElement('div');
+                card.className = "group relative bg-carbon rounded-xl overflow-hidden border border-carbon hover:border-infrared/50 transition-all duration-300 cursor-pointer flex flex-col justify-end aspect-[4/3] shadow-lg";
+                
+                card.innerHTML = `
+                    <img src="${car.mainImage}" alt="${car.brand} ${car.model}" 
+                         class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700 z-0" />
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10"></div>
+
+                    <div class="relative z-20 p-6 w-full">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate block mb-1">
+                            ${car.brand}
+                        </span>
+                        <h3 class="text-xl font-bold text-white mb-4 group-hover:text-infrared transition">
+                            ${car.model}
+                        </h3>
+
+                        <div class="flex items-center justify-between text-xs text-silver/80 pt-3 border-t border-white/10">
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-slate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" stroke-width="2"/><line x1="16" x2="16" y1="2" y2="6" stroke-width="2"/><line x1="8" x2="8" y1="2" y2="6" stroke-width="2"/><line x1="3" x2="21" y1="10" y2="10" stroke-width="2"/></svg>
+                                ${car.year}
+                            </span>
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-slate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                ${car.power}
+                            </span>
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-slate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 22h12M4 9h10M4 5h10a2 2 0 0 1 2 2v15H2V7a2 2 0 0 1 2-2z" stroke-width="2"/></svg>
+                                ${car.fuel}
+                            </span>
+                        </div>
+                    </div>
+                `;
+
+                card.addEventListener('click', () => showModal(car.id));
+                grid.appendChild(card);
+            });
+            
+            renderPagination();
+        }
+
+        // 4. Generate Pagination Controls
+        function renderPagination() {
+            const container = document.getElementById('pagination-container');
+            container.innerHTML = '';
+            const totalPages = Math.ceil(filteredVehicles.length / cardsPerPage);
+            
+            if (totalPages <= 1) return; 
+
+            // Prev
+            const prevBtn = document.createElement('button');
+            prevBtn.className = `px-5 py-2.5 rounded-lg border text-xs font-semibold tracking-wider uppercase transition ${currentPage === 1 ? 'border-carbon/50 text-slate cursor-not-allowed' : 'border-carbon text-silver hover:bg-carbon hover:text-white'}`;
+            prevBtn.textContent = 'Prev';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.addEventListener('click', () => { if (currentPage > 1) renderCards(currentPage - 1); });
+            container.appendChild(prevBtn);
+
+            // Numbers
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.className = `w-10 h-10 rounded-lg border text-xs font-bold transition flex items-center justify-center ${currentPage === i ? 'border-infrared bg-infrared text-white shadow-lg shadow-infrared/20' : 'border-carbon text-silver hover:bg-carbon hover:text-white'}`;
+                pageBtn.textContent = i;
+                pageBtn.addEventListener('click', () => renderCards(i));
+                container.appendChild(pageBtn);
+            }
+
+            // Next
+            const nextBtn = document.createElement('button');
+            nextBtn.className = `px-5 py-2.5 rounded-lg border text-xs font-semibold tracking-wider uppercase transition ${currentPage === totalPages ? 'border-carbon/50 text-slate cursor-not-allowed' : 'border-carbon text-silver hover:bg-carbon hover:text-white'}`;
+            nextBtn.textContent = 'Next';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.addEventListener('click', () => { if (currentPage < totalPages) renderCards(currentPage + 1); });
+            container.appendChild(nextBtn);
+        }
+
+        // 5. Handle Filtering Logic
+        function applyFilters() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const selectedMake = document.getElementById('make-select').value;
+            const selectedBody = document.getElementById('body-select').value;
+
+            filteredVehicles = allVehicles.filter(vehicle => {
+                const matchesSearch = searchTerm === '' || 
+                                      vehicle.model.toLowerCase().includes(searchTerm) || 
+                                      vehicle.brand.toLowerCase().includes(searchTerm);
+                
+                const matchesMake = selectedMake === 'All Brands' || vehicle.brand === selectedMake;
+                const matchesBody = selectedBody === 'All Types' || vehicle.category === selectedBody;
+                
+                return matchesSearch && matchesMake && matchesBody;
+            });
+
+            renderCards(1); // Always reset to page 1 after filtering
+        }
+
+        // 6. Hook up filter events
+        function setupFilterListeners() {
+            document.getElementById('search-input').addEventListener('input', applyFilters);
+            document.getElementById('make-select').addEventListener('change', applyFilters);
+            document.getElementById('body-select').addEventListener('change', applyFilters);
+
+            document.getElementById('reset-filters').addEventListener('click', () => {
+                document.getElementById('search-input').value = '';
+                document.getElementById('make-select').value = 'All Brands';
+                document.getElementById('body-select').value = 'All Types';
+                applyFilters(); 
+            });
+        }
+
+        // 7. Modal Logic (Show/Hide/Populate)
+        function showModal(id) {
+            const vehicle = allVehicles.find(v => v.id === id);
+            if (!vehicle) return;
+
+            // Fill text details
+            document.getElementById('modal-main-img').src = vehicle.mainImage;
+            document.getElementById('modal-brand').textContent = vehicle.brand;
+            document.getElementById('modal-model').textContent = vehicle.model;
+            document.getElementById('modal-desc').textContent = vehicle.description;
+            document.getElementById('modal-accel').textContent = vehicle.acceleration;
+            document.getElementById('modal-top-speed').textContent = vehicle.topSpeed;
+            document.getElementById('modal-power').textContent = vehicle.power;
+            document.getElementById('modal-engine').textContent = vehicle.engine;
+            document.getElementById('modal-year').textContent = vehicle.year;
+            document.getElementById('modal-mileage').textContent = vehicle.mileage;
+            document.getElementById('modal-fuel').textContent = vehicle.fuel;
+            document.getElementById('modal-color').textContent = vehicle.color;
+
+            // Handle Thumbnails
+            const thumbsContainer = document.getElementById('modal-thumbnails');
+            thumbsContainer.innerHTML = '';
+            
+            // Combine main image and any extra thumbnails
+            const imagesList = [vehicle.mainImage, ...(vehicle.thumbnails || [])];
+
+            imagesList.forEach(imgUrl => {
+                const thumb = document.createElement('img');
+                thumb.src = imgUrl;
+                thumb.className = "w-20 h-14 object-cover rounded-lg border-2 border-transparent hover:border-infrared cursor-pointer transition flex-shrink-0";
+                
+                thumb.addEventListener('click', () => {
+                    // Update main image on click with small fade effect
+                    const mainImg = document.getElementById('modal-main-img');
+                    mainImg.style.opacity = '0.7';
+                    setTimeout(() => {
+                        mainImg.src = imgUrl;
+                        mainImg.style.opacity = '1';
+                    }, 150);
+                });
+                thumbsContainer.appendChild(thumb);
+            });
+
+            // Show Modal
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+            document.getElementById('vehicle-modal').classList.remove('hidden');
+        }
+
+        function setupModalListeners() {
+            const modal = document.getElementById('vehicle-modal');
+            const closeBtn = document.getElementById('close-modal-btn');
+
+            const closeModal = () => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            };
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                // Close if clicking on the dark background overlay, not the content box
+                if (e.target === modal) closeModal();
+            });
+        }
+    </script>
+</body>
+</html>

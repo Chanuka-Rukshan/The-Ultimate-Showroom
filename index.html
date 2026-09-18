@@ -25,9 +25,9 @@
                 <div class="hidden md:flex space-x-8">
                     <a href="#"
                         class="text-silver hover:text-infrared text-sm font-semibold tracking-wide transition duration-300">HOME</a>
-                    <a href="#"
+                    <a href="vehicles.html"
                         class="text-silver hover:text-infrared text-sm font-semibold tracking-wide transition duration-300">VEHICLES</a>
-                    <a href="#"
+                    <a href="#about"
                         class="text-silver hover:text-infrared text-sm font-semibold tracking-wide transition duration-300">ABOUT
                         US</a>
                 </div>
@@ -58,9 +58,9 @@
     <section class="relative h-screen flex items-center justify-start overflow-hidden">
 
 
-        
+
         <div class="absolute inset-0 z-0 bg-obsidian">
-            
+
             <div id="hero-carousel" class="absolute inset-0 w-full h-full">
                 <img src="./src/images/hero_1.jpg"
                     class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100"
@@ -114,6 +114,223 @@
 
     </section>
     <!-- Hero Section -->
+
+    <!-- New Arrivals Section -->
+    <section class="bg-obsidian py-16 px-4 sm:px-6 lg:px-8 border-t border-carbon">
+        <div class="max-w-7xl mx-auto">
+
+            <div class="flex justify-between items-end pb-4 border-b border-carbon relative">
+                <div>
+                    <p class="text-xs font-semibold tracking-[0.25em] text-slate uppercase mb-1">The Inventory</p>
+                    <h2 class="text-3xl font-bold text-white tracking-wide">New Arrivals</h2>
+                </div>
+                <span class="text-xs text-slate tracking-widest font-mono">6 units</span>
+                <div class="absolute bottom-0 left-0 w-24 h-0.5 bg-infrared"></div>
+            </div>
+
+            
+            <div id="new-arrivals-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8"></div>
+
+        </div>
+    </section>
+
+    <!-- Vehicle Details Modal -->
+    <div id="vehicle-modal"
+        class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div
+            class="relative bg-obsidian border border-carbon w-full max-w-5xl rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
+
+        
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-slate hover:text-white z-30">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+           
+            <div class="w-full md:w-3/5 p-6 flex flex-col justify-between">
+                <div class="relative w-full aspect-video rounded-xl overflow-hidden border border-carbon bg-carbon">
+                    <img id="modal-main-img" src="" alt="Vehicle" class="w-full h-full object-cover" />
+                </div>
+                
+                <div id="modal-thumbnails" class="flex gap-3 mt-4 overflow-x-auto">
+                </div>
+            </div>
+
+           
+            <div
+                class="w-full md:w-2/5 p-6 border-t md:border-t-0 md:border-l border-carbon flex flex-col justify-between">
+                <div>
+                    <span id="modal-brand" class="text-xs font-bold text-infrared tracking-widest uppercase"></span>
+                    <h3 id="modal-model" class="text-3xl font-bold text-white mb-2"></h3>
+                    <p id="modal-desc" class="text-xs text-slate mb-6 leading-relaxed"></p>
+
+                    <div class="h-px bg-carbon w-full mb-6"></div>
+
+                   
+                    <div class="grid grid-cols-2 gap-y-4 gap-x-2 text-xs">
+                        <div>
+                            <p class="text-slate uppercase tracking-wider text-[10px]">0-100 km/h</p>
+                            <p id="modal-accel" class="text-white font-semibold mt-0.5"></p>
+                        </div>
+                        <div>
+                            <p class="text-slate uppercase tracking-wider text-[10px]">Top Speed</p>
+                            <p id="modal-top-speed" class="text-white font-semibold mt-0.5"></p>
+                        </div>
+                        <div>
+                            <p class="text-slate uppercase tracking-wider text-[10px]">Power</p>
+                            <p id="modal-power" class="text-white font-semibold mt-0.5"></p>
+                        </div>
+                        <div>
+                            <p class="text-slate uppercase tracking-wider text-[10px]">Engine</p>
+                            <p id="modal-engine" class="text-white font-semibold mt-0.5"></p>
+                        </div>
+                        <div>
+                            <p class="text-slate uppercase tracking-wider text-[10px]">Year</p>
+                            <p id="modal-year" class="text-white font-semibold mt-0.5"></p>
+                        </div>
+                        <div>
+                            <p class="text-slate uppercase tracking-wider text-[10px]">Mileage</p>
+                            <p id="modal-mileage" class="text-white font-semibold mt-0.5"></p>
+                        </div>
+                        <div>
+                            <p class="text-slate uppercase tracking-wider text-[10px]">Fuel</p>
+                            <p id="modal-fuel" class="text-white font-semibold mt-0.5"></p>
+                        </div>
+                        <div>
+                            <p class="text-slate uppercase tracking-wider text-[10px]">Color</p>
+                            <p id="modal-color" class="text-white font-semibold mt-0.5"></p>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="mt-8 flex flex-col gap-3">
+                    <button
+                        class="w-full bg-infrared hover:bg-red-700 text-white font-bold py-3 rounded-lg transition text-xs tracking-wider uppercase shadow-lg shadow-infrared/20">
+                        Inquire Now
+                    </button>
+                    <button
+                        class="w-full bg-transparent border border-carbon hover:border-slate text-silver font-bold py-3 rounded-lg transition text-xs tracking-wider uppercase">
+                        Book Test Drive
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <section id="about" class="bg-obsidian py-24 px-4 sm:px-6 lg:px-8 border-t border-carbon relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- වම් පැත්ත: විස්තරය -->
+                <div>
+                    <p class="text-xs font-semibold tracking-[0.25em] text-slate uppercase mb-2">Our Legacy</p>
+                    <h2 class="text-4xl font-bold text-white tracking-wide mb-6">
+                        Redefining the <br>
+                        <span class="text-infrared">Automotive Experience</span>
+                    </h2>
+                    <p class="text-slate text-lg leading-relaxed mb-8">
+                        Welcome to The Ultimate Showroom, where passion meets precision. We specialize in curating an exclusive collection of the world's most sought-after supercars, luxury SUVs, and premium vehicles. Our commitment is to provide an unparalleled purchasing experience, tailored to the discerning tastes of our global clientele.
+                    </p>
+                    
+                    <!-- පොඩි Stats ටිකක් -->
+                    <div class="grid grid-cols-2 gap-8 border-t border-carbon pt-8">
+                        <div>
+                            <h4 class="text-3xl font-bold text-white mb-1">10+</h4>
+                            <p class="text-xs text-slate uppercase tracking-wider">Years of Excellence</p>
+                        </div>
+                        <div>
+                            <h4 class="text-3xl font-bold text-white mb-1">100%</h4>
+                            <p class="text-xs text-slate uppercase tracking-wider">Client Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- දකුණු පැත්ත: ෆොටෝ එක -->
+                <div class="relative w-full aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden border border-carbon shadow-2xl">
+                    <!-- ඔයාගේ About Us එකට ගැලපෙන වෙන ෆොටෝ එකක් තියෙනවා නම් මෙතනට දාන්න -->
+                    <img src="./src/images/hero_1.jpg" alt="About Our Showroom" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-obsidian/60 to-transparent"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="bg-carbon/20 border-t border-carbon pt-16 pb-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="./src/images/logo.png" alt="Logo" class="w-8 h-8">
+                        <span class="text-xl font-bold text-white tracking-widest">SHOWROOM</span>
+                    </div>
+                    <p class="text-sm text-slate leading-relaxed">
+                        The ultimate destination for luxury, performance, and prestige motorcars. Curated for the elite.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold tracking-wider mb-5 uppercase text-sm">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-slate">
+                        <li><a href="#" class="hover:text-infrared transition">Home</a></li>
+                        <li><a href="vehicles.html" class="hover:text-infrared transition">Inventory</a></li>
+                        <li><a href="#about" class="hover:text-infrared transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-infrared transition">Testimonials</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-bold tracking-wider mb-5 uppercase text-sm">Contact Us</h4>
+                    <ul class="space-y-3 text-sm text-slate">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-infrared" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            +94 77 123 4567
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-infrared" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            sales@ultimateshowroom.com
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-infrared mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span>Luxury Avenue,<br>Colombo, Sri Lanka</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-white font-bold tracking-wider mb-5 uppercase text-sm">Newsletter</h4>
+                    <p class="text-xs text-slate mb-4">Subscribe to receive the latest updates on new arrivals.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Email address" class="bg-obsidian border border-carbon text-white text-sm rounded-l-lg px-4 py-2 w-full focus:outline-none focus:border-infrared transition">
+                        <button class="bg-infrared text-white px-4 py-2 rounded-r-lg hover:bg-red-700 transition">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright & Socials -->
+            <div class="border-t border-carbon pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-slate tracking-wider">&copy; 2026 The Ultimate Showroom. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate hover:text-white transition uppercase text-xs font-bold tracking-widest">FB</a>
+                    <a href="#" class="text-slate hover:text-white transition uppercase text-xs font-bold tracking-widest">IG</a>
+                    <a href="#" class="text-slate hover:text-white transition uppercase text-xs font-bold tracking-widest">X</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
 
     <script src="./script.js"></script>
 
