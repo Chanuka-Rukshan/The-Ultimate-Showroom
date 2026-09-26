@@ -7,24 +7,25 @@
     <title>The Ultimate Showroom</title>
     <link rel="shortcut icon" href="./src/images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./src/output.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body class="bg-obsidian">
 
     <!-- Header -->
-    <nav class="fixed w-full border-b border-carbon top-0 z-50 bg-obsidian/70 backdrop-blur-md">
+    <nav data-aos="fade-down" class="fixed w-full border-b border-carbon top-0 z-50 bg-obsidian/70 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
 
 
-                <div class="shrink-0 flex items-center">
-                    <img src="./src/images/logo.png" alt="Logo" class="w-12 h-12">
-                </div>
+                <a href="index.html" class="shrink-0 flex items-center group">
+                    <img src="./src/images/logo.png" alt="Logo" class="w-12 h-12 transition group-hover:scale-105">
+                </a>
 
 
                 <div class="hidden md:flex space-x-8">
-                    <a href="#"
-                        class="text-silver hover:text-infrared text-sm font-semibold tracking-wide transition duration-300">HOME</a>
+                    <a href="index.html"
+                        class="text-infrared text-sm font-semibold tracking-wide transition duration-300 border-b-2 border-infrared pb-0.5">HOME</a>
                     <a href="vehicles.html"
                         class="text-silver hover:text-infrared text-sm font-semibold tracking-wide transition duration-300">VEHICLES</a>
                     <a href="#about"
@@ -34,17 +35,34 @@
 
 
                 <div class="flex items-center space-x-4">
-
-
-                    <button class="md:hidden text-silver hover:text-white focus:outline-none">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    <button id="mobile-menu-btn" aria-label="Toggle navigation menu"
+                        class="md:hidden text-silver hover:text-white focus:outline-none p-2 rounded-lg hover:bg-carbon transition cursor-pointer">
+                        <svg id="menu-icon-open" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
+                        <svg id="menu-icon-close" class="w-8 h-8 hidden" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
                     </button>
                 </div>
 
+            </div>
+        </div>
+
+
+        <div id="mobile-menu" class="hidden md:hidden bg-obsidian/95 border-t border-carbon backdrop-blur-xl">
+            <div class="px-4 pt-3 pb-5 space-y-2 text-center">
+                <a href="index.html"
+                    class="block text-infrared bg-carbon/50 px-3 py-3 rounded-md text-base font-semibold transition">HOME</a>
+                <a href="vehicles.html"
+                    class="block text-silver hover:text-infrared hover:bg-carbon px-3 py-3 rounded-md text-base font-semibold transition">VEHICLES</a>
+                <a href="#about"
+                    class="block text-silver hover:text-infrared hover:bg-carbon px-3 py-3 rounded-md text-base font-semibold transition">ABOUT
+                    US</a>
             </div>
         </div>
     </nav>
@@ -55,7 +73,7 @@
 
 
 
-        <div class="absolute inset-0 z-0 bg-obsidian">
+        <div class="absolute inset-0 z-0 bg-obsidian" data-aos="fade-up" data-aos-delay="300">
 
             <div id="hero-carousel" class="absolute inset-0 w-full h-full">
                 <img src="./src/images/hero_1.jpg"
@@ -81,21 +99,23 @@
 
         <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
             <div class="max-w-2xl">
-                <p class="text-infrared font-bold tracking-[0.3em] uppercase mb-4 text-sm">
+                <p class="text-infrared font-bold tracking-[0.3em] uppercase mb-4 text-sm" data-aos="fade-right"
+                    data-aos-delay="300">
                     Private Collection
                 </p>
 
-                <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
+                <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6" data-aos="fade-right"
+                    data-aos-delay="500">
                     Engineering, <br>
-                    <span class="text-silver">distilled to silence.</span>
+                    <span class="text-silver" data-aos="fade-right" data-aos-delay="700">distilled to silence.</span>
                 </h1>
 
-                <p class="text-slate text-lg mb-10 max-w-xl">
+                <p class="text-slate text-lg mb-10 max-w-xl" data-aos="fade-right" data-aos-delay="900">
                     A curated gallery of the world's most significant motorcars. Explore our exclusive collection of
                     brand-new and pre-owned vehicles tailored for perfection.
                 </p>
 
-                <div class="flex flex-wrap gap-4">
+                <div class="flex flex-wrap gap-4" data-aos="fade-up" data-aos-delay="300">
                     <button
                         class="bg-infrared text-white px-8 py-3 rounded-md font-bold hover:bg-red-700 transition duration-300 shadow-lg shadow-infrared/30">
                         Explore Collection
@@ -221,7 +241,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-                <!-- වම් පැත්ත: විස්තරය -->
+
                 <div>
                     <p class="text-xs font-semibold tracking-[0.25em] text-slate uppercase mb-2">Our Legacy</p>
                     <h2 class="text-4xl font-bold text-white tracking-wide mb-6">
@@ -235,7 +255,7 @@
                         discerning tastes of our global clientele.
                     </p>
 
-                    <!-- පොඩි Stats ටිකක් -->
+
                     <div class="grid grid-cols-2 gap-8 border-t border-carbon pt-8">
                         <div>
                             <h4 class="text-3xl font-bold text-white mb-1">10+</h4>
@@ -248,10 +268,9 @@
                     </div>
                 </div>
 
-                <!-- දකුණු පැත්ත: ෆොටෝ එක -->
+
                 <div
                     class="relative w-full aspect-square md:aspect-4/3 rounded-2xl overflow-hidden border border-carbon shadow-2xl">
-                    <!-- ඔයාගේ About Us එකට ගැලපෙන වෙන ෆොටෝ එකක් තියෙනවා නම් මෙතනට දාන්න -->
                     <img src="./src/images/hero_1.jpg" alt="About Our Showroom"
                         class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
                     <div class="absolute inset-0 bg-linear-to-tr from-obsidian/60 to-transparent"></div>
@@ -266,7 +285,6 @@
         <div class="max-w-7xl mx-auto">
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                <!-- Brand Info -->
                 <div class="space-y-4">
                     <div class="flex items-center gap-3">
                         <img src="./src/images/logo.png" alt="Logo" class="w-8 h-8">
@@ -277,18 +295,18 @@
                     </p>
                 </div>
 
-                <!-- Quick Links -->
+
                 <div>
                     <h4 class="text-white font-bold tracking-wider mb-5 uppercase text-sm">Quick Links</h4>
                     <ul class="space-y-3 text-sm text-slate">
                         <li><a href="#" class="hover:text-infrared transition">Home</a></li>
                         <li><a href="vehicles.html" class="hover:text-infrared transition">Vehicles</a></li>
                         <li><a href="#about" class="hover:text-infrared transition">About Us</a></li>
-                        
+
                     </ul>
                 </div>
 
-                <!-- Contact Info -->
+
                 <div>
                     <h4 class="text-white font-bold tracking-wider mb-5 uppercase text-sm">Contact Us</h4>
                     <ul class="space-y-3 text-sm text-slate">
@@ -319,7 +337,7 @@
                     </ul>
                 </div>
 
-                <!-- Newsletter -->
+
                 <div>
                     <h4 class="text-white font-bold tracking-wider mb-5 uppercase text-sm">Newsletter</h4>
                     <p class="text-xs text-slate mb-4">Subscribe to receive the latest updates on new arrivals.</p>
@@ -336,7 +354,7 @@
                 </div>
             </div>
 
-            <!-- Bottom Copyright & Socials -->
+
             <div class="border-t border-carbon pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-xs text-slate tracking-wider">&copy; 2026 The Ultimate Showroom. All rights reserved.</p>
                 <div class="flex space-x-6">
@@ -390,6 +408,16 @@
     </footer>
 
     <script src="./script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            AOS.init({
+                duration: 1000, 
+                once: true,    
+                offset: 50     
+            });
+        });
+    </script>
 
 </body>
 
